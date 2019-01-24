@@ -42,6 +42,7 @@ class InstagramAction:
         follow_count = convertElementTextToInt(self.browser.find_element_by_xpath(user_xpath_number).text)
         time.sleep(1)
 
+        print("Total user {}: {}".format(action.name, follow_count))
         # It find the button
         user_follow_button = self.browser.find_element_by_xpath(user_xpath_button)
         time.sleep(1)
@@ -121,7 +122,8 @@ class InstagramAction:
         time.sleep(3)
 
     def followUser(self, user:str):
-
+        
+        print("Going to: {}".format(self.bot.urls.get(Action.FOLLOW.name) + user))
         self.browser.get(self.bot.urls.get(Action.FOLLOW.name) + user)
         time.sleep(1)
 
@@ -141,20 +143,22 @@ class InstagramAction:
         
     def likeUserPhoto(self, user:str, comments:list = None, max:int = None):
 
-        self.browser.get(self.bot.urls.get(Action.LIKE_POST.value) + user)
+        print("Going to: {}".format(self.bot.urls.get(Action.LIKE.value) + user))
+        self.browser.get(self.bot.urls.get(Action.LIKE.value) + user)
         time.sleep(1.5)
 
-        post_total_xpath = findByXpath(self.bot, Action.LIKE_POST, self.connection, 1)
-        first_post_xpath = findByXpath(self.bot, Action.LIKE_POST, self.connection, 2)
-        like_post_xpath = findByXpath(self.bot, Action.LIKE_POST, self.connection, 3)
-        next_post_xpath = findByXpath(self.bot, Action.LIKE_POST, self.connection, 4)
-        comment_post_xpath = findByXpath(self.bot, Action.LIKE_POST, self.connection, 5)
+        post_total_xpath = findByXpath(self.bot, Action.LIKE, self.connection, 1)
+        first_post_xpath = findByXpath(self.bot, Action.LIKE, self.connection, 2)
+        like_post_xpath = findByXpath(self.bot, Action.LIKE, self.connection, 3)
+        next_post_xpath = findByXpath(self.bot, Action.LIKE, self.connection, 4)
+        comment_post_xpath = findByXpath(self.bot, Action.LIKE, self.connection, 5)
 
         posts_total = self.browser.find_element_by_xpath(post_total_xpath) 
 
         # gets the total of posts of the user
         TOTAL = convertElementTextToInt(posts_total.text)
 
+        print("Total posts:{}".format(TOTAL))
         if TOTAL == 0:
             print("User: {} has no posts!".format(user))
         else:
@@ -200,16 +204,15 @@ class InstagramAction:
 
 
     def close(self, msg:str = None):
-        print("\n")
         if msg is not None:
             print("Closing browser due to exception: {}".format(msg))
         else:
             print("Closing browers...")
         self.browser.close()
-        print("\n")
 
     def downloadPhotos(self, user:str):
 
+        print("Going to: {}".format(self.bot.urls.get(Action.DOWNLOAD.value) + user))
         self.browser.get(self.bot.urls.get(Action.DOWNLOAD.value) + user)
         time.sleep(1.5)
 
@@ -223,6 +226,8 @@ class InstagramAction:
         #total posts
         total = convertElementTextToInt(posts_total.text)
         
+        print("Total posts:{}".format(total))
+
         # the first 25 posts 
         images = self.browser.find_elements_by_tag_name("img")
         sources = []

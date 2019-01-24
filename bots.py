@@ -2,6 +2,7 @@ from booter.Connection import BotConnect
 from sys import argv
 from booter.bot_util import askForText, createDirectory
 import json
+import requests
 
 
 if len(argv) > 1:
