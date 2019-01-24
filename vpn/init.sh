@@ -12,7 +12,7 @@ cd server-configs
 
 echo "Username: ${username}"
 echo "Password: ${password}"
-
-sudo openvpn nl-free-01.protonvpn.com.tcp.ovpn 
+sleep 1
+sudo openvpn nl-free-01.protonvpn.com.tcp.ovpn &&
 
 
