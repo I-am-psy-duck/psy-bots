@@ -1,10 +1,8 @@
 __py**
 chromeDriver/
-acessos.txt
 selenium/
 logs/
 .vs**
-database/rambot.db
 database/bot.db
 images/
 json/
