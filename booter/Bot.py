@@ -10,8 +10,8 @@ class Action(Enum):
     FOLLOW = 'FOLLOW'
     FOLLOWING = 'FOLLOWING'
     FOLLOWERS = 'FOLLOWERS'
-    LIKE_POST = 'LIKE'
-    SEE_STORY = 'STORY'
+    LIKE = 'LIKE'
+    STORY = 'STORY'
     DOWNLOAD = 'DOWNLOAD'
 
 class Bot():

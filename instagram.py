@@ -16,7 +16,7 @@ actions = {
     "follow" : Action.FOLLOW,
     "following": Action.FOLLOWING,
     "followers": Action.FOLLOWERS,
-    "like":Action.LIKE_POST,
+    "like":Action.LIKE,
     "download":Action.DOWNLOAD
 }
 #http://ozzmaker.com/add-colour-to-text-in-python/

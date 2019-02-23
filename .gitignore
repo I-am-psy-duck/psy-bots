@@ -1,11 +1,11 @@
 __py**
 chromeDriver/
-acessos.txt
 selenium/
 logs/
 .vs**
-database/rambot.db
 database/bot.db
 images/
 json/
 **json/
+vpn/server-configs/password.txt
+vpn/server-configs/username.txt

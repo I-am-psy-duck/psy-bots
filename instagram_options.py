@@ -125,7 +125,7 @@ def doActionFromJson(file_name: str):
                 max = askForNumber("If you want to insert a max, type a number:")
                 instagram_action.getFollowingUser(user, max)
 
-            elif action == Action.LIKE_POST:
+            elif action == Action.LIKE:
 
                 max = askForNumber("If you want to insert a max posts to like, type a number:")
                 number_comments = askForNumber("If you want to insert comments, type how many you want:")
